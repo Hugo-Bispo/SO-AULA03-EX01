@@ -7,13 +7,14 @@ import java.io.InputStreamReader;
 
 
 public class RedesController {
-	public String getOS() {
-		String os = System.getProperty("os.name");
-		return os;
-	}
-	
-	public void interfaces(String os, int opc){
-		String process;
+    private String getOS() {
+        String os = System.getProperty("os.name");
+        return os;
+    }
+    
+    public void interfaces(int opc){
+        String os = getOS();
+        String process;
 		if (opc == 1) {
 			if (os.contains("Windows")) {
 				process = "ipconfig";
@@ -83,7 +84,7 @@ public class RedesController {
 			if (linha.contains("dia")) {
 				String[] media = linha.split(" = ");
 					System.out.println("Media= " + (media[3]));
-			}				
+			}
 		}
 		
 		if (process.contains("ping -4 -c 10")) {
